@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <style>
+        form {
+            display: table;
+        }
+        p {
+            display: table-row;
+        }
+        label{
+            display: table-cell;
+        }
+        input {
+            display: table-cell;
+        }
+    </style>
+</head>
+<body>
+    <h1>JS Exercise 2</h1>
+    <form>
+    <p>
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName"><br>
+    </p>
+    <p></p>
+    <label for="middleName">Middle Name:</label>
+    <input type="text" id="middleName"><br>
+    </p>
+    <p>
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName"><br>
+    </p>
+    </form>
+    <button onclick="clearFields()">Clear</button> <br>
+    <button onclick="generateFullName()">Generate Full Name</button><br>
+    
+    <p id="fullNameOutput"></p>
+
+    <script>
+        function clearFields() {
+            document.getElementById("firstName").value = "";
+            document.getElementById("middleName").value = "";
+            document.getElementById("lastName").value = "";
+            document.getElementById("fullNameOutput").textContent = "";
+        }
+
+        function generateFullName() {
+            const firstName = document.getElementById("firstName").value;
+            const middleName = document.getElementById("middleName").value;
+            const lastName = document.getElementById("lastName").value;
+
+            const fullName = `${firstName} ${middleName} ${lastName}`.trim();
+
+            document.getElementById("fullNameOutput").textContent = `Generated Full Name: ${fullName}`;
+        }
+    </script>
+</body>
+</html>
