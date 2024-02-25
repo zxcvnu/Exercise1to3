@@ -1,60 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        form {
-            display: table;
-        }
-        p {
-            display: table-row;
-        }
-        label{
-            display: table-cell;
-        }
-        input {
-            display: table-cell;
-        }
-    </style>
 </head>
 <body>
     <h1>JS Exercise 2</h1>
-    <form>
-    <p>
-    <label for="firstName">First Name:</label>
-    <input type="text" id="firstName"><br>
-    </p>
-    <p></p>
-    <label for="middleName">Middle Name:</label>
-    <input type="text" id="middleName"><br>
-    </p>
-    <p>
-    <label for="lastName">Last Name:</label>
-    <input type="text" id="lastName"><br>
-    </p>
-    </form>
-    <button onclick="clearFields()">Clear</button> <br>
-    <button onclick="generateFullName()">Generate Full Name</button><br>
-    
-    <p id="fullNameOutput"></p>
+    <table>
+        <tr>
+            <td>
+                <label for="num1">First Name:</label>
+            </td>
+            <td>
+                <input type="text" name="num1" id="num1" placeholder="Enter first Name">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="num2">Middle Name:</label>
+            </td>
+            <td>
+                <input type="text" name="num2" id="num2" placeholder="Enter Middle Name">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="num3">Last Name:</label>
+            </td>
+            <td>
+                <input type="text" name="num3" id="num3" placeholder="Enter Last Name">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button onclick="generate()">Generate Fullname</button>
+                <button onclick="clearEntries()">Clear Entries</button>
+            </td>
+        </tr>
+    </table>
 
-    <script>
-        function clearFields() {
-            document.getElementById("firstName").value = "";
-            document.getElementById("middleName").value = "";
-            document.getElementById("lastName").value = "";
-            document.getElementById("fullNameOutput").textContent = "";
-        }
+    <p style="font-weight: bold;">Full Name:</p>
+    <span id="sum"></span>
 
-        function generateFullName() {
-            const firstName = document.getElementById("firstName").value;
-            const middleName = document.getElementById("middleName").value;
-            const lastName = document.getElementById("lastName").value;
-
-            const fullName = `${firstName} ${middleName} ${lastName}`.trim();
-
-            document.getElementById("fullNameOutput").textContent = `Generated Full Name: ${fullName}`;
-        }
-    </script>
+    <script src="main2.js"></script>
 </body>
 </html>

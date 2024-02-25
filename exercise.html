@@ -1,58 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
     <h1>JS Exercise 3</h1>
-    <label for="numberInput">Enter a Number:</label>
-    <input type="text" id="numberInput" placeholder="Enter a number"><br><br>
-    <button onclick="addNumber()">Insert</button>
-    <button onclick="deleteNumbers()">Delete</button>
-    <br><br>
+    <table>
+        <tr>
+            <td>
+                <label for="elements">Input Number: </label>
+            </td>
+            <td>
+                <input type="number" name="input" id="input">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button onclick="pushToArr()">Insert</button>
+                <button onclick="clearEntries()">Delete All</button>
+            </td>
+        </tr>
+    </table>
+    <p style="font-weight: bold;">Elements inside the array:</p>
+    <p id="elements"></p>
+    <p>Sum:  <span id="sum"></span> <br>Highest:  <span id="highest"></span> <br>Lowest:  <span id="lowest"></span></p>
 
-    <p id="numbersList"></p>
-    <p id="sumOutput"></p>
-    <p id="highestOutput"></p>
-    <p id="lowestOutput"></p>
-
-    <script>
-        let numbers = [];
-
-        function addNumber() {
-            const input = document.getElementById("numberInput");
-            const number = parseFloat(input.value);
-
-            if (!isNaN(number)) {
-                numbers.push(number);
-                input.value = "";
-                updateNumbersList();
-                calculateStats();
-            } else {
-                alert("Please enter a valid number.");
-            }
-        }
-
-        function deleteNumbers() {
-            numbers = [];
-            updateNumbersList();
-            calculateStats();
-        }
-
-        function updateNumbersList() {
-            const numbersList = document.getElementById("numbersList");
-            numbersList.textContent = "Numbers: " + numbers.join(", ");
-        }
-
-        function calculateStats() {
-            const sum = numbers.reduce((acc, curr) => acc + curr, 0);
-            const highest = Math.max(...numbers);
-            const lowest = Math.min(...numbers);
-
-            document.getElementById("sumOutput").textContent = "Sum: " + sum;
-            document.getElementById("highestOutput").textContent = "Highest Number: " + highest;
-            document.getElementById("lowestOutput").textContent = "Lowest Number: " + lowest;
-        }
-    </script>
+    <script src="main3.js"></script>
 </body>
 </html>
